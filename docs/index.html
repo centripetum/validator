@@ -26,9 +26,69 @@
               
                 
                 <li><a
+                  href='#after'
+                  class="">
+                  after
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#notnull'
+                  class="">
+                  notNull
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#isstring'
+                  class="">
+                  isString
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#charcount'
                   class="">
                   charCount
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#combineerrors'
+                  class="">
+                  combineErrors
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#createerror'
+                  class="">
+                  createError
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#valuewrapper'
+                  class="">
+                  valueWrapper
                   
                 </a>
                 
@@ -52,6 +112,233 @@
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='after'>
+      after
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a <code>Maybe&#x3C;Date></code> test date (created with Sanctuary's <code>parseDate</code>), return
+a <strong>function</strong> that takes a <code>Maybe&#x3C;Date></code> date to be tested (created with Sanctuary's
+<code>parseDate</code>), and returns a <code>Right(Just(value))</code> if the date to be tested is
+<strong>after</strong> the test date, or a <code>Left({ errorType: NOT_AFTER_DATE_TIME })</code> error
+if not.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>after(testValue: Maybe&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>>, value: Maybe&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>>): Either&#x3C;Maybe&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>>></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>testValue</span> <code class='quiet'>(Maybe&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>>
+            = <code>END_OF_TIME</code>)</code>
+	    The date against which to test
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Maybe&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>>)</code>
+	    The date to be tested
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Either&#x3C;Maybe&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a>>></code>:
+        Either a 
+<code>Right(Just(value))</code>
+ if the date value is after the testValue or 
+<code>Left({ errorType: NOT_AFTER_DATE_TIME, testValue, value })</code>
+ if not
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='notnull'>
+      notNull
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a <code>Maybe&#x3C;mixed></code>, returns <code>Right(Just(value))</code> if the input
+is <code>Just(value)</code> and <code>Left({ errorType: IS_NULL, value: Nothing })</code>
+if it is <code>Nothing</code>. Empty strings must be converted to <code>Nothing</code>
+before using this function; this is handled by <code>valueWrapper</code>.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>notNull(value: Maybe&#x3C;any>): Either&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, any></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Maybe&#x3C;any>
+            = <code>Nothing</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Either&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, any></code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='isstring'>
+      isString
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a <code>Maybe&#x3C;any></code>, returns <code>Right(Just(value))</code> if <code>value</code> is a <code>String</code>,
+and <code>Left({ errorType: NOT_A_STRING, value: Maybe&#x3C;any> })</code> if <code>value</code>
+is <code>Nothing</code> or not a <code>String</code>.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>isString(value: Maybe): Either</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Maybe
+            = <code>Nothing</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Either</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
         
           
           <section class='p2 mb2 clearfix bg-white minishadow'>
@@ -92,6 +379,223 @@
           <div>
             <span class='code bold'>value</span> <code class='quiet'>(Maybe
             = <code>Nothing</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Maybe</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='combineerrors'>
+      combineErrors
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a Left()</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>combineErrors(errors: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;Left>): Left</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>errors</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;Left>
+            = <code>[]</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>Left</code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='createerror'>
+      createError
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given an errorType: <code>string</code>, a value: <code>Maybe&#x3C;mixed></code>, and an optional testValue: <code>Maybe&#x3C;mixed></code>,
+return an error object.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>createError(errorType: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, value: Maybe&#x3C;any>, testValue: Maybe&#x3C;any>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>errorType</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>value</span> <code class='quiet'>(Maybe&#x3C;any>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>testValue</span> <code class='quiet'>(Maybe&#x3C;any>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='valuewrapper'>
+      valueWrapper
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Given a raw value, returns <code>Nothing</code> if the value is <code>null</code>, <code>undefined</code>,
+or <code>''</code>; otherwise, returns <code>Just(value)</code>.</p>
+
+ 
+  
+    <div class='pre p1 fill-light mt0'>valueWrapper(rawValue: any): Maybe</div>
+   
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>rawValue</span> <code class='quiet'>(any)</code>
 	    
           </div>
           

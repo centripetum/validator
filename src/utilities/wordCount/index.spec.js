@@ -2,14 +2,14 @@ import { Just, Nothing } from 'sanctuary'
 
 import wordCount from './'
 
-describe('validation:utilities:wordCount', () => {
+describe('utilities:wordCount', () => {
   it(`handles punctuation`, () => {
     expect(
       wordCount(Just(" Here's a few. Punctuation marks, that is! "))
     ).toEqual(Just(7))
   })
 
-  it(`returns Just(the correct word count) for Just(a series of words)`, () => {
+  it(`returns Just(4) for Just(' these are four words ')`, () => {
     expect(wordCount(Just(' these are four words '))).toEqual(Just(4))
   })
 

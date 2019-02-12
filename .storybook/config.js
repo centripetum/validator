@@ -1,9 +1,8 @@
-import { configure } from '@storybook/react'
-
-import hljs from 'highlight.js/lib/highlight'
-import { map } from 'ramda'
-
 import 'highlight.js/styles/paraiso-light.css'
+
+import { configure } from '@storybook/react'
+import hljs from 'highlight.js/lib/highlight'
+import { map } from 'sanctuary'
 
 hljs.registerLanguage(
   'javascript',
@@ -12,7 +11,7 @@ hljs.registerLanguage(
 const req = require.context('../src/', true, /\.stories\.js$/)
 
 function loadStories () {
-  map(filename => req(filename), req.keys())
+  map(filename => req(filename))(req.keys())
 }
 
 configure(loadStories, module)

@@ -1,3 +1,5 @@
+// @flow
+
 import {
   Left,
   equals,
@@ -16,5 +18,5 @@ const popAndFlatten = reduce(a => v => [
   ...(Array.isArray(v.value) ? v.value : [v.value])
 ])([])
 
-export default (errors = Left([])) =>
+export default (errors: Array<Left<Object>> = []): Left<Object> =>
   pipe([popAndFlatten, unique, Left])(errors)

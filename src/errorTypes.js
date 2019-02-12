@@ -4,7 +4,6 @@ export const IS_NULL = 'IS_NULL'
 // Type
 export const NOT_A_NUMBER = 'NOT_A_NUMBER'
 export const NOT_AN_INTEGER = 'NOT_AN_INTEGER'
-export const NOT_A_FLOAT = 'NOT_A_FLOAT'
 export const NOT_A_RATIO = 'NOT_A_RATIO'
 export const NOT_A_STRING = 'NOT_A_STRING'
 export const NOT_A_BOOLEAN = 'NOT_A_BOOLEAN'
