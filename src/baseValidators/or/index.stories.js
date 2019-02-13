@@ -137,7 +137,7 @@ storiesOf('baseValidators/or', module)
       testValue))
       <br />
       <br />
-      or([failure('x'), failure('y'), failure('x')])(value)
+      <b>or([failure('x'), failure('y'), failure('x')])(value)</b>
       <br />
       <br />
       Expected:
