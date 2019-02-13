@@ -19,7 +19,7 @@ storiesOf('baseValidators/and', module)
       const success = v =&gt; Right(v)
       <br />
       <br />
-      <b>and(success, success)(value)</b>
+      <b>and([success, success])(value)</b>
       <br />
       <br />
       Expected:
@@ -29,7 +29,7 @@ storiesOf('baseValidators/and', module)
       <br />
       Actual:
       <br />
-      {show(and(success, success)(value))}
+      {show(and([success, success])(value))}
     </code>
   ))
   .add('success AND success AND success', () => (
@@ -39,7 +39,7 @@ storiesOf('baseValidators/and', module)
       const success = v =&gt; Right(v)
       <br />
       <br />
-      <b>and(success, success, success)(Just(1))</b>
+      <b>and([success, success, success])(Just(1))</b>
       <br />
       <br />
       Expected:
@@ -49,7 +49,7 @@ storiesOf('baseValidators/and', module)
       <br />
       Actual:
       <br />
-      {show(and(success, success, success)(value))}
+      {show(and([success, success, success])(value))}
     </code>
   ))
   .add('failure AND success', () => (
@@ -64,7 +64,7 @@ storiesOf('baseValidators/and', module)
       testValue))
       <br />
       <br />
-      <b>and(failure('x'), success)({show(value)})</b>
+      <b>and([failure('x'), success])({show(value)})</b>
       <br />
       <br />
       Expected:
@@ -77,7 +77,7 @@ storiesOf('baseValidators/and', module)
       <br />
       Actual:
       <br />
-      {show(and(failure('x'), success)(value))}
+      {show(and([failure('x'), success])(value))}
     </code>
   ))
   .add('success AND failure', () => (
@@ -92,7 +92,7 @@ storiesOf('baseValidators/and', module)
       testValue))
       <br />
       <br />
-      <b>and(success, failure('y'))({show(value)})</b>
+      <b>and([success, failure('y')])({show(value)})</b>
       <br />
       <br />
       Expected:
@@ -105,7 +105,7 @@ storiesOf('baseValidators/and', module)
       <br />
       Actual:
       <br />
-      {show(and(success, failure('y'))(value))}
+      {show(and([success, failure('y')])(value))}
     </code>
   ))
   .add('failure AND failure', () => (
@@ -118,7 +118,7 @@ storiesOf('baseValidators/and', module)
       testValue))
       <br />
       <br />
-      <b>and(failure('x'), failure('y'))({show(value)})</b>
+      <b>and([failure('x'), failure('y')])({show(value)})</b>
       <br />
       <br />
       Expected:
@@ -132,7 +132,7 @@ storiesOf('baseValidators/and', module)
       <br />
       Actual:
       <br />
-      {show(and(failure('x'), failure('y'))(value))}
+      {show(and([failure('x'), failure('y')])(value))}
     </code>
   ))
   .add('failure AND failure AND failure', () => (
@@ -145,7 +145,7 @@ storiesOf('baseValidators/and', module)
       testValue))
       <br />
       <br />
-      <b>and(failure('x'), failure('y'), failure('x'))({show(value)})</b>
+      <b>and([failure('x'), failure('y'), failure('x')])({show(value)})</b>
       <br />
       <br />
       Expected:
@@ -159,6 +159,6 @@ storiesOf('baseValidators/and', module)
       <br />
       Actual:
       <br />
-      {show(and(failure('x'), failure('y'), failure('x'))(value))}
+      {show(and([failure('x'), failure('y'), failure('x')])(value))}
     </code>
   ))

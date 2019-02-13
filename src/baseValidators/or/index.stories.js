@@ -19,7 +19,7 @@ storiesOf('baseValidators/or', module)
       const success = v =&gt; Right(v)
       <br />
       <br />
-      <b>or(success, success)(value)</b>
+      <b>or([success, success])(value)</b>
       <br />
       <br />
       Expected:
@@ -29,7 +29,7 @@ storiesOf('baseValidators/or', module)
       <br />
       Actual:
       <br />
-      {show(or(success, success)(value))}
+      {show(or([success, success])(value))}
     </code>
   ))
   .add('success OR success OR success', () => (
@@ -39,7 +39,7 @@ storiesOf('baseValidators/or', module)
       const success = v =&gt; Right(v)
       <br />
       <br />
-      <b>or(success, success, success)(value)</b>
+      <b>or([success, success, success])(value)</b>
       <br />
       <br />
       Expected:
@@ -49,7 +49,7 @@ storiesOf('baseValidators/or', module)
       <br />
       Actual:
       <br />
-      {show(or(success, success, success)(value))}
+      {show(or([success, success, success])(value))}
     </code>
   ))
   .add('failure OR success', () => (
@@ -64,7 +64,7 @@ storiesOf('baseValidators/or', module)
       testValue))
       <br />
       <br />
-      <b>or(failure('x'), success)(value)</b>
+      <b>or([failure('x'), success])(value)</b>
       <br />
       <br />
       Expected:
@@ -74,7 +74,7 @@ storiesOf('baseValidators/or', module)
       <br />
       Actual:
       <br />
-      {show(or(failure('x'), success)(value))}
+      {show(or([failure('x'), success])(value))}
     </code>
   ))
   .add('success OR failure', () => (
@@ -89,7 +89,7 @@ storiesOf('baseValidators/or', module)
       testValue))
       <br />
       <br />
-      <b>or(success, failure('y'))(value)</b>
+      <b>or([success, failure('y')])(value)</b>
       <br />
       <br />
       Expected:
@@ -99,7 +99,7 @@ storiesOf('baseValidators/or', module)
       <br />
       Actual:
       <br />
-      {show(or(success, failure('y'))(value))}
+      {show(or([success, failure('y')])(value))}
     </code>
   ))
   .add('failure OR failure', () => (
@@ -112,7 +112,7 @@ storiesOf('baseValidators/or', module)
       testValue))
       <br />
       <br />
-      <b>or(failure('x'), failure('y'))(value)</b>
+      <b>or([failure('x'), failure('y')])(value)</b>
       <br />
       <br />
       Expected:
@@ -124,7 +124,7 @@ storiesOf('baseValidators/or', module)
       <br />
       Actual:
       <br />
-      {show(or(failure('x'), failure('y'))(value))}
+      {show(or([failure('x'), failure('y')])(value))}
     </code>
   ))
   .add('failure OR failure OR failure', () => (
@@ -137,7 +137,7 @@ storiesOf('baseValidators/or', module)
       testValue))
       <br />
       <br />
-      or(failure('x'), failure('y'), failure('x'))(value)
+      or([failure('x'), failure('y'), failure('x')])(value)
       <br />
       <br />
       Expected:
@@ -149,6 +149,6 @@ storiesOf('baseValidators/or', module)
       <br />
       Actual:
       <br />
-      {show(or(failure('x'), failure('y'), failure('x'))(value))}
+      {show(or([failure('x'), failure('y'), failure('x')])(value))}
     </code>
   ))
