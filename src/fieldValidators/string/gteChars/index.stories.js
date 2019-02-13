@@ -13,8 +13,8 @@ storiesOf('fieldValidators/string/gteChars', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_FEW_CHARACTERS", "testValue": Just (5),
-      "value": Just ("Bob"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_FEW_CHARACTERS",
+      "testValue": Just (5){`}`}], "value": Just ("Bob"){`}`})
       <br />
       <br />
       Actual:

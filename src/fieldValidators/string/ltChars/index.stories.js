@@ -28,8 +28,8 @@ storiesOf('fieldValidators/string/ltChars', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_CHARACTERS", "testValue": Just (5),
-      "value": Just ("Tommy"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_CHARACTERS",
+      "testValue": Just (5){`}`}], "value": Just ("Tommy"){`}`})
       <br />
       <br />
       Actual:
@@ -59,8 +59,8 @@ storiesOf('fieldValidators/string/ltChars', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_CHARACTERS", "testValue": Nothing,
-      "value": Just ("Tommy"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_CHARACTERS",
+      "testValue": Nothing{`}`}], "value": Just ("Tommy"){`}`})
       <br />
       <br />
       Actual:

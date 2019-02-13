@@ -28,8 +28,8 @@ storiesOf('fieldValidators/string/ltWords', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_WORDS", "testValue": Just (5), "value":
-      Just ("Tommy is no more, too!"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_WORDS", "testValue":
+      Just (5){`}`}], "value": Just ("Tommy is no more, too!"){`}`})
       <br />
       <br />
       Actual:
@@ -59,8 +59,8 @@ storiesOf('fieldValidators/string/ltWords', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_WORDS", "testValue": Nothing, "value":
-      Just ("Tommy is no more, too!"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_WORDS", "testValue":
+      Nothing{`}`}], "value": Just ("Tommy is no more, too!"){`}`})
       <br />
       <br />
       Actual:

@@ -43,7 +43,8 @@ storiesOf('typeValidators/isString', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "NOT_A_STRING", "value": Just(0){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
+      Just (0){`}`})
       <br />
       <br />
       Actual:
@@ -58,7 +59,8 @@ storiesOf('typeValidators/isString', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "NOT_A_STRING", "value": Just(false){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
+      Just (false){`}`})
       <br />
       <br />
       Actual:
@@ -73,7 +75,8 @@ storiesOf('typeValidators/isString', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "NOT_A_STRING", "value": Just([1,2,3]){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
+      Just ([1, 2, 3]){`}`})
       <br />
       <br />
       Actual:
@@ -90,8 +93,8 @@ storiesOf('typeValidators/isString', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "NOT_A_STRING", "value": Just ({`{`} test: true{' '}
-      {`}`}){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
+      Just ({`{`}"test": true{`}`}){`}`})
       <br />
       <br />
       Actual:
@@ -106,7 +109,8 @@ storiesOf('typeValidators/isString', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "NOT_A_STRING", "value": Nothing{`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
+      Nothing{`}`})
       <br />
       <br />
       Actual:
