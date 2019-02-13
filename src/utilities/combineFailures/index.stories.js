@@ -1,125 +1,79 @@
 import * as React from 'react'
 
-import { Left, show } from 'sanctuary'
+import { Just, Left, show } from 'sanctuary'
 
-import combineErrors from './'
+import combineFailures from './'
+import createFailures from '../createFailures'
 import { storiesOf } from '@storybook/react'
 
-storiesOf('utilities/combineErrors', module)
-  .add('handle single error', () => (
+const failureOne = createFailures('FAIL_1', Just(1), Just(5))
+const failureTwo = createFailures('FAIL_2', Just(3), Just(7))
+const failureThree = createFailures('FAIL_3', Just(5), Just(9))
+
+storiesOf('utilities/combineFailures', module)
+  .add('handle single failure', () => (
     <code>
-      <b>
-        combineErrors([Left({`{`} error: 'ERROR5' {`}`})])
-      </b>
+      const failureOne = createFailures('FAIL_1', Just(1), Just(5))
+      <br />
+      <br />
+      <b>combineFailures([failureOne])</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ([{`{`}"error": "ERROR5"{`}`}])
+      Left ({`{`}"failures": [{`{`}"errorType": "FAIL_1", "testValue": Just (5)
+      {`}`}], "value": Just (1){`}`})
       <br />
       <br />
       Actual:
       <br />
-      {show(combineErrors([Left({ error: 'ERROR5' })]))}
+      {show(combineFailures([failureOne]))}
     </code>
   ))
   .add('handle multiple errors', () => (
     <code>
-      <b>
-        combineErrors([
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`}),
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR2' {`}`})
-        <br />
-        ])
-      </b>
+      const failureOne = createFailures('FAIL_1', Just(1), Just(5))
+      <br />
+      const failureTwo = createFailures('FAIL_2', Just(3), Just(7))
+      <br />
+      const failureThree = createFailures('FAIL_3', Just(5), Just(9))
+      <br />
+      <br />
+      <b>combineFailures([failureOne, failureTwo, failureThree])</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ([{`{`}"error": "ERROR2"{`}`}, {`{`}"error": "ERROR3"{`}`}, {`{`}
-      "error": "ERROR5"{`}`}])
+      Left ({`{`}"failures": [{`{`}"errorType": "FAIL_1", "testValue": Just (5)
+      {`}`}, {`{`}"errorType": "FAIL_2", "testValue": Just (7){`}`}, {`{`}
+      "errorType": "FAIL_3", "testValue": Just (9){`}`}], "value": Just (1){`}`}
+      )
       <br />
       <br />
       Actual:
       <br />
-      {show(
-        combineErrors([
-          Left({ error: 'ERROR5' }),
-          Left({ error: 'ERROR3' }),
-          Left({ error: 'ERROR2' })
-        ])
-      )}
+      {show(combineFailures([failureOne, failureTwo, failureThree]))}
     </code>
   ))
   .add('handle duplicates', () => (
     <code>
-      <b>
-        combineErrors([
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`}),
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR2' {`}`}),
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`})
-        <br />
-        ])
-      </b>
+      const failureOne = createFailures('FAIL_1', Just(1), Just(5))
+      <br />
+      const failureTwo = createFailures('FAIL_2', Just(3), Just(7))
+      <br />
+      <br />
+      <b>combineFailures([failureOne, failureTwo, failureOne])</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ([{`{`}"error": "ERROR2"{`}`}, {`{`}"error": "ERROR3"{`}`}, {`{`}
-      "error": "ERROR5"{`}`}])
+      Left ({`{`}"failures": [{`{`}"errorType": "FAIL_1", "testValue": Just (5)
+      {`}`}, {`{`}"errorType": "FAIL_2", "testValue": Just (7){`}`}], "value":
+      Just (1){`}`})
       <br />
       <br />
       Actual:
       <br />
-      {show(
-        combineErrors([
-          Left({ error: 'ERROR5' }),
-          Left({ error: 'ERROR3' }),
-          Left({ error: 'ERROR2' }),
-          Left({ error: 'ERROR3' })
-        ])
-      )}
-    </code>
-  ))
-  .add('handle nested errors', () => (
-    <code>
-      <b>
-        combineErrors([
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
-        <br />
-        &nbsp;&nbsp;Left([{`{`} error: 'ERROR3' {`}`}, Left({`{`} error:
-        'ERROR2' {`}`}]),
-        <br />
-        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`})
-        <br />
-        ])
-      </b>
-      <br />
-      <br />
-      Expected:
-      <br />
-      Left ([{`{`}"error": "ERROR2"{`}`}, {`{`}"error": "ERROR3"{`}`}, {`{`}
-      "error": "ERROR5"{`}`}])
-      <br />
-      <br />
-      Actual:
-      <br />
-      {show(
-        combineErrors([
-          Left([{ error: 'ERROR5' }]),
-          Left([{ error: 'ERROR3' }, { error: 'ERROR2' }]),
-          Left([{ error: 'ERROR3' }])
-        ])
-      )}
+      {show(combineFailures([failureOne, failureTwo, failureOne]))}
     </code>
   ))

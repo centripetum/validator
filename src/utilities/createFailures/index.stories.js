@@ -13,7 +13,7 @@ storiesOf('utilities/createFailures', module)
       <br />
       Expected:
       <br />
-      {`{`}"errorType": "IS_NULL", "value": Nothing{`}`}
+      {`{`}"failures": [{`{`}"errorType": "IS_NULL"{`}`}], "value": Nothing{`}`}
       <br />
       <br />
       Actual:
@@ -28,7 +28,8 @@ storiesOf('utilities/createFailures', module)
       <br />
       Expected:
       <br />
-      {`{`}"errorType": "NOT_GT", "testValue": Just (7), "value": Just (5){`}`}
+      {`{`}"failures": [{`{`}"errorType": "NOT_GT", "testValue": Just (7){`}`}],
+      "value": Just (5){`}`}
       <br />
       <br />
       Actual:
