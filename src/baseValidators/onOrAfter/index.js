@@ -1,10 +1,13 @@
+// @flow
+
 import { Left, Right, equals, isNothing, max } from 'sanctuary'
 
 import { NOT_ON_OR_AFTER_DATE_TIME } from '../../errorTypes'
-import createError from '../../utilities/createError'
-import { END_OF_TIME } from '../../constants'
+import createFailures from '../../utilities/createFailures'
 
-export default (testValue = END_OF_TIME) => value =>
+export default (testValue: Maybe<Date>): Function => (
+  value: Maybe<Date>
+): Either<Failures, Maybe<Date>> =>
   isNothing(value) || equals(value)(max(testValue)(value))
     ? Right(value)
-    : Left(createError(NOT_ON_OR_AFTER_DATE_TIME, value, testValue))
+    : Left(createFailures(NOT_ON_OR_AFTER_DATE_TIME, value, testValue))

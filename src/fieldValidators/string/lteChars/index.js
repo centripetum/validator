@@ -1,10 +1,14 @@
+// @flow
+
 import { Left, Right, isNothing, lte } from 'sanctuary'
 
 import { TOO_MANY_CHARACTERS } from '../../../errorTypes'
 import charCount from '../../../utilities/charCount'
-import createError from '../../../utilities/createError'
+import createFailures from '../../../utilities/createFailures'
 
-export default testValue => value =>
+export default (testValue: Maybe<number>): Function => (
+  value: Maybe<string>
+): Either<Failures, Maybe<string>> =>
   isNothing(value) || lte(testValue)(charCount(value))
     ? Right(value)
-    : Left(createError(TOO_MANY_CHARACTERS, value, testValue))
+    : Left(createFailures(TOO_MANY_CHARACTERS, value, testValue))

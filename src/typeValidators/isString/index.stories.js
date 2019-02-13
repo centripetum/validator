@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
-import { Just, show, Nothing } from 'sanctuary'
+import { Just, Nothing, show } from 'sanctuary'
 
 import isString from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('typeValidators/isString', module)
   .add("Just('test')", () => (
     <code>
-      isString(Just('test'))
+      <b>isString(Just('test'))</b>
       <br />
       <br />
       Expected:
@@ -23,7 +23,7 @@ storiesOf('typeValidators/isString', module)
   ))
   .add("Just('')", () => (
     <code>
-      isString(Just(''))
+      <b>isString(Just(''))</b>
       <br />
       <br />
       Expected:
@@ -38,7 +38,7 @@ storiesOf('typeValidators/isString', module)
   ))
   .add('Just(0)', () => (
     <code>
-      isString(Just(0))
+      <b>isString(Just(0))</b>
       <br />
       <br />
       Expected:
@@ -53,7 +53,7 @@ storiesOf('typeValidators/isString', module)
   ))
   .add('Just(false)', () => (
     <code>
-      isString(Just(false))
+      <b>isString(Just(false))</b>
       <br />
       <br />
       Expected:
@@ -68,7 +68,7 @@ storiesOf('typeValidators/isString', module)
   ))
   .add('Just([1,2,3])', () => (
     <code>
-      isString(Just([1,2,3]))
+      <b>isString(Just([1,2,3]))</b>
       <br />
       <br />
       Expected:
@@ -83,7 +83,9 @@ storiesOf('typeValidators/isString', module)
   ))
   .add('Just({ test: true })', () => (
     <code>
-      isString({`{`} test: true {`}`})
+      <b>
+        isString({`{`} test: true {`}`})
+      </b>
       <br />
       <br />
       Expected:
@@ -99,7 +101,7 @@ storiesOf('typeValidators/isString', module)
   ))
   .add('Nothing', () => (
     <code>
-      isString(Nothing)
+      <b>isString(Nothing)</b>
       <br />
       <br />
       Expected:

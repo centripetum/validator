@@ -1,14 +1,13 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { show } from 'sanctuary'
-
+import { storiesOf } from '@storybook/react'
 import valueWrapper from './'
 
 storiesOf('utilities/valueWrapper', module)
   .add('0', () => (
     <code>
-      valueWrapper(0)
+      <b>valueWrapper(0)</b>
       <br />
       <br />
       Expected:
@@ -23,7 +22,7 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add("'Some text input'", () => (
     <code>
-      valueWrapper('Some text input')
+      <b>valueWrapper('Some text input')</b>
       <br />
       <br />
       Expected:
@@ -38,7 +37,7 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add('false', () => (
     <code>
-      valueWrapper(false)
+      <b>valueWrapper(false)</b>
       <br />
       <br />
       Expected:
@@ -53,7 +52,7 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add('[1, 2, 3]', () => (
     <code>
-      valueWrapper([1, 2, 3])
+      <b>valueWrapper([1, 2, 3])</b>
       <br />
       <br />
       Expected:
@@ -68,7 +67,9 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add('{ test: true }', () => (
     <code>
-      valueWrapper({`{`} test: true {`}`})
+      <b>
+        valueWrapper({`{`} test: true {`}`})
+      </b>
       <br />
       <br />
       Expected:
@@ -83,7 +84,7 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add("''", () => (
     <code>
-      valueWrapper('')
+      <b>valueWrapper('')</b>
       <br />
       <br />
       Expected:
@@ -98,7 +99,7 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add('null', () => (
     <code>
-      valueWrapper(null)
+      <b>valueWrapper(null)</b>
       <br />
       <br />
       Expected:
@@ -113,7 +114,7 @@ storiesOf('utilities/valueWrapper', module)
   ))
   .add('undefined', () => (
     <code>
-      valueWrapper()
+      <b>valueWrapper()</b>
       <br />
       <br />
       Expected:

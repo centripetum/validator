@@ -3,7 +3,7 @@
 import { Either, Left, Maybe, Nothing, Right, isJust } from 'sanctuary'
 
 import { IS_NULL } from '../../errorTypes'
-import createError from '../../utilities/createError'
+import createFailures from '../../utilities/createFailures'
 
-export default (value: Maybe<mixed> = Nothing): Either<Object, mixed> =>
-  isJust(value) ? Right(value) : Left(createError(IS_NULL, value))
+export default (value: Maybe<mixed>): Either<Failures, Maybe<mixed>> =>
+  isJust(value) ? Right(value) : Left(createFailures(IS_NULL, value))

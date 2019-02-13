@@ -1,19 +1,16 @@
-import {
-  Left,
-  Nothing,
-  Right,
-  equals,
-  lefts,
-  map,
-  pipe,
-  rights,
-  size
-} from 'sanctuary'
+// @flow
 
-const isEmpty = pipe([size, equals(0)])
+import { Left, Nothing, Right, lefts, map, rights } from 'sanctuary'
 
-export default (...funcs) => (value = Nothing) => {
-  const results = map(f => f(value))(funcs)
+import combineFailures from '../../utilities/combineFailures'
+import isEmpty from '../../utilities/isEmpty'
 
-  return isEmpty(rights(results)) ? Left(lefts(results)) : Right(value)
+export default (...funcs: Array<Function>): Function => (
+  value: Maybe<mixed> = Nothing
+): Either<Failures, mixed> => {
+  const results: Array<Either<Failures, mixed>> = map(f => f(value))(funcs)
+
+  return isEmpty(rights(results))
+    ? combineFailures(lefts(results))
+    : Right(value)
 }

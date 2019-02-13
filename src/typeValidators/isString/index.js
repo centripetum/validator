@@ -10,12 +10,12 @@ import {
   isJust,
   maybeToNullable
 } from 'sanctuary'
+
 import $ from 'sanctuary-def'
-
 import { NOT_A_STRING } from '../../errorTypes'
-import createError from '../../utilities/createError'
+import createFailures from '../../utilities/createFailures'
 
-export default (value: Maybe = Nothing): Either =>
+export default (value: Maybe<string>): Either<Failures, Maybe<string>> =>
   isJust(value) && is($.String)(maybeToNullable(value))
     ? Right(value)
-    : Left(createError(NOT_A_STRING, value))
+    : Left(createFailures(NOT_A_STRING, value))

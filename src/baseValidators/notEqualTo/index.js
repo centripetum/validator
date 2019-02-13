@@ -1,9 +1,13 @@
+// @flow
+
 import { Left, Nothing, Right, equals, isNothing, not } from 'sanctuary'
 
 import { NOT_UNEQUALL_TO } from '../../errorTypes'
-import createError from '../../utilities/createError'
+import createFailures from '../../utilities/createFailures'
 
-export default (testValue = Nothing) => value =>
+export default (testValue: Maybe<mixed>): Function => (
+  value: Maybe<mixed>
+): Either<Failures, Maybe<mixed>> =>
   isNothing(value) || not(equals(value)(testValue))
     ? Right(value)
-    : Left(createError(NOT_UNEQUALL_TO, value, testValue))
+    : Left(createFailures(NOT_UNEQUALL_TO, value, testValue))

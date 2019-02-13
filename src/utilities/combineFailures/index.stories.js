@@ -1,14 +1,16 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Left, show } from 'sanctuary'
 
 import combineErrors from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('utilities/combineErrors', module)
   .add('handle single error', () => (
     <code>
-      combineErrors([Left({`{`} error: 'ERROR5' {`}`})])
+      <b>
+        combineErrors([Left({`{`} error: 'ERROR5' {`}`})])
+      </b>
       <br />
       <br />
       Expected:
@@ -23,15 +25,17 @@ storiesOf('utilities/combineErrors', module)
   ))
   .add('handle multiple errors', () => (
     <code>
-      combineErrors([
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`}),
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR2' {`}`})
-      <br />
-      ])
+      <b>
+        combineErrors([
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`}),
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR2' {`}`})
+        <br />
+        ])
+      </b>
       <br />
       <br />
       Expected:
@@ -53,17 +57,19 @@ storiesOf('utilities/combineErrors', module)
   ))
   .add('handle duplicates', () => (
     <code>
-      combineErrors([
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`}),
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR2' {`}`}),
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`})
-      <br />
-      ])
+      <b>
+        combineErrors([
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`}),
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR2' {`}`}),
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`})
+        <br />
+        ])
+      </b>
       <br />
       <br />
       Expected:
@@ -86,16 +92,18 @@ storiesOf('utilities/combineErrors', module)
   ))
   .add('handle nested errors', () => (
     <code>
-      combineErrors([
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
-      <br />
-      &nbsp;&nbsp;Left([{`{`} error: 'ERROR3' {`}`}, Left({`{`} error: 'ERROR2'{' '}
-      {`}`}]),
-      <br />
-      &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`})
-      <br />
-      ])
+      <b>
+        combineErrors([
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR5' {`}`}),
+        <br />
+        &nbsp;&nbsp;Left([{`{`} error: 'ERROR3' {`}`}, Left({`{`} error:
+        'ERROR2' {`}`}]),
+        <br />
+        &nbsp;&nbsp;Left({`{`} error: 'ERROR3' {`}`})
+        <br />
+        ])
+      </b>
       <br />
       <br />
       Expected:

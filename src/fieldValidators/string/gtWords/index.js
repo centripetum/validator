@@ -3,10 +3,12 @@
 import { Either, Left, Maybe, Right, gt, isNothing } from 'sanctuary'
 
 import { TOO_FEW_WORDS } from '../../../errorTypes'
-import createError from '../../../utilities/createError'
+import createFailures from '../../../utilities/createFailures'
 import wordCount from '../../../utilities/wordCount'
 
-export default (testValue: Maybe): Function => (value: Maybe): Either =>
+export default (testValue: Maybe<number>): Function => (
+  value: Maybe<string>
+): Either<Failures, Maybe<string>> =>
   isNothing(value) || gt(testValue)(wordCount(value))
     ? Right(value)
-    : Left(createError(TOO_FEW_WORDS, value, testValue))
+    : Left(createFailures(TOO_FEW_WORDS, value, testValue))

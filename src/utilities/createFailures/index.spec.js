@@ -1,13 +1,14 @@
-import createError from './'
 import { Just, Nothing } from 'sanctuary'
+
+import createFailures from './'
 
 const errorType = 'ERROR_MESSAGE'
 const value = Just('test')
 const testValue = Nothing
 
-describe('utilities:createError', () => {
+describe('utilities:createFailures', () => {
   it('returns an error with a testValue when provided', () => {
-    expect(createError(errorType, value, testValue)).toEqual({
+    expect(createFailures(errorType, value, testValue)).toEqual({
       errorType,
       value,
       testValue
@@ -15,7 +16,7 @@ describe('utilities:createError', () => {
   })
 
   it('returns an error without a testValue when not provided', () => {
-    expect(createError(errorType, value)).toEqual({
+    expect(createFailures(errorType, value)).toEqual({
       errorType,
       value
     })

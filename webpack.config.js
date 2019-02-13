@@ -7,38 +7,38 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const minimizeTrait = {
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      minimize: true,
+      minimize: true
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
           compress: {
-            warnings: false,
+            warnings: false
           },
           output: {
-            comments: false,
-          },
-        },
-      }),
-    ],
-  },
+            comments: false
+          }
+        }
+      })
+    ]
+  }
 }
 
-const toolkit = {
+const validator = {
   mode: 'production',
   entry: './src/index.js',
   target: 'node',
   output: {
     path: path.resolve('./dist'),
-    filename: 'centripetal-toolkit.node.js',
+    filename: 'centripetal-validator.node.js',
     libraryTarget: 'umd',
-    library: 'centripetal-toolkit',
+    library: 'centripetal-validator'
   },
   externals: {
-    ramda: 'ramda',
+    sanctuary: 'sanctuary'
   },
   module: {
     rules: [
@@ -52,37 +52,37 @@ const toolkit = {
               '@babel/preset-env',
               {
                 targets: {
-                  node: '9',
+                  node: '9'
                 },
-                forceAllTransforms: true,
-              },
-            ],
-          ],
-        },
+                forceAllTransforms: true
+              }
+            ]
+          ]
+        }
       },
       {
         exclude: /node_modules/u,
         loader: 'eslint-loader',
         options: {},
         test: /\.js$/u
-      },
-    ],
-  },
+      }
+    ]
+  }
 }
 
-const toolkitMin = Object.assign(
+const validatorMin = Object.assign(
   {
     mode: 'production',
     entry: './src/index.js',
     target: 'node',
     output: {
       path: path.resolve('./dist'),
-      filename: 'centripetal-toolkit.node.min.js',
+      filename: 'centripetal-validator.node.min.js',
       libraryTarget: 'umd',
-      library: 'centripetal-toolkit',
+      library: 'centripetal-validator'
     },
     externals: {
-      ramda: 'ramda',
+      sanctuary: 'sanctuary'
     },
     module: {
       rules: [
@@ -96,38 +96,38 @@ const toolkitMin = Object.assign(
                 '@babel/preset-env',
                 {
                   targets: {
-                    node: '4',
+                    node: '4'
                   },
-                  forceAllTransforms: true,
-                },
-              ],
-            ],
-          },
+                  forceAllTransforms: true
+                }
+              ]
+            ]
+          }
         },
         {
           exclude: /node_modules/u,
           loader: 'eslint-loader',
           options: {},
           test: /\.js$/u
-        },
-      ],
-    },
+        }
+      ]
+    }
   },
   minimizeTrait
 )
 
-const toolkitWeb = {
+const validatorWeb = {
   mode: 'production',
   entry: './src/index.js',
   target: 'web',
   output: {
     path: path.resolve('./dist'),
-    filename: 'centripetal-toolkit.web.js',
+    filename: 'centripetal-validator.web.js',
     libraryTarget: 'umd',
-    library: 'centripetal-toolkit',
+    library: 'centripetal-validator'
   },
   externals: {
-    ramda: 'R',
+    sanctuary: 'S'
   },
   module: {
     rules: [
@@ -140,43 +140,43 @@ const toolkitWeb = {
             [
               '@babel/preset-env',
               {
-                forceAllTransforms: true,
-              },
-            ],
+                forceAllTransforms: true
+              }
+            ]
           ],
           plugins: [
             [
               '@babel/plugin-transform-modules-commonjs',
               {
-                loose: true,
-              },
-            ],
-          ],
-        },
+                loose: true
+              }
+            ]
+          ]
+        }
       },
       {
         exclude: /node_modules/u,
         loader: 'eslint-loader',
         options: {},
         test: /\.js$/u
-      },
-    ],
-  },
+      }
+    ]
+  }
 }
 
-const toolkitWebMin = Object.assign(
+const validatorWebMin = Object.assign(
   {
     mode: 'production',
     entry: './src/index.js',
     target: 'web',
     output: {
       path: path.resolve('./dist'),
-      filename: 'centripetal-toolkit.web.min.js',
+      filename: 'centripetal-validator.web.min.js',
       libraryTarget: 'umd',
-      library: 'centripetal-toolkit',
+      library: 'centripetal-validator'
     },
     externals: {
-      ramda: 'R',
+      sanctuary: 'S'
     },
     module: {
       rules: [
@@ -189,35 +189,30 @@ const toolkitWebMin = Object.assign(
               [
                 '@babel/preset-env',
                 {
-                  forceAllTransforms: true,
-                },
-              ],
+                  forceAllTransforms: true
+                }
+              ]
             ],
             plugins: [
               [
                 '@babel/plugin-transform-modules-commonjs',
                 {
-                  loose: true,
-                },
-              ],
-            ],
-          },
+                  loose: true
+                }
+              ]
+            ]
+          }
         },
         {
           exclude: /node_modules/u,
           loader: 'eslint-loader',
           options: {},
           test: /\.js$/u
-        },
-      ],
-    },
+        }
+      ]
+    }
   },
   minimizeTrait
 )
 
-module.exports = [
-  toolkit,
-  toolkitMin,
-  toolkitWeb,
-  toolkitWebMin,
-]
+module.exports = [validator, validatorMin, validatorWeb, validatorWebMin]

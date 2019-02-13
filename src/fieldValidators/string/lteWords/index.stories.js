@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import lteWords from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('fieldValidators/string/lteWords', module)
   .add("Just('Bob is dead!') <= 3 words?", () => (
     <code>
-      lteWords(Just(3))(Just('Bob is dead!'))
+      <b>lteWords(Just(3))(Just('Bob is dead!'))</b>
       <br />
       <br />
       Expected:
@@ -23,7 +23,7 @@ storiesOf('fieldValidators/string/lteWords', module)
   ))
   .add("Just('Tommy is no more, too.') <= 3 words?", () => (
     <code>
-      lteWords(Just(3))(Just('Tommy is no more, too.'))
+      <b>lteWords(Just(3))(Just('Tommy is no more, too.'))</b>
       <br />
       <br />
       Expected:
@@ -39,7 +39,7 @@ storiesOf('fieldValidators/string/lteWords', module)
   ))
   .add('Nothing <= 3 words?', () => (
     <code>
-      lteWords(Just(3))(Nothing)
+      <b>lteWords(Just(3))(Nothing)</b>
       <br />
       <br />
       Expected:
@@ -54,7 +54,7 @@ storiesOf('fieldValidators/string/lteWords', module)
   ))
   .add("Just('Tommy is no more, too.') <= Nothing words?", () => (
     <code>
-      lteWords(Nothing)(Just('Tommy is no more, too.'))
+      <b>lteWords(Nothing)(Just('Tommy is no more, too.'))</b>
       <br />
       <br />
       Expected:

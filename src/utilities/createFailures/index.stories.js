@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
-import createError from './'
+import createFailures from './'
+import { storiesOf } from '@storybook/react'
 
-storiesOf('utilities/createError', module)
+storiesOf('utilities/createFailures', module)
   .add('errorType: IS_NULL, value: Nothing', () => (
     <code>
-      createError(IS_NULL, Nothing)
+      <b>createFailures(IS_NULL, Nothing)</b>
       <br />
       <br />
       Expected:
@@ -18,12 +18,12 @@ storiesOf('utilities/createError', module)
       <br />
       Actual:
       <br />
-      {show(createError('IS_NULL', Nothing))}
+      {show(createFailures('IS_NULL', Nothing))}
     </code>
   ))
   .add('errorType: NOT_GT, value: Just(5), testValue: Just(7)', () => (
     <code>
-      createError(NOT_GT, Just(5), Just(7))
+      <b>createFailures(NOT_GT, Just(5), Just(7))</b>
       <br />
       <br />
       Expected:
@@ -33,6 +33,6 @@ storiesOf('utilities/createError', module)
       <br />
       Actual:
       <br />
-      {show(createError('NOT_GT', Just(5), Just(7)))}
+      {show(createFailures('NOT_GT', Just(5), Just(7)))}
     </code>
   ))

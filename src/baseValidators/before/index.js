@@ -1,11 +1,14 @@
+// @flow
+
 import { Left, Right, equals, isNothing, min, not } from 'sanctuary'
 
 import { NOT_BEFORE_DATE_TIME } from '../../errorTypes'
-import createError from '../../utilities/createError'
-import { BEGINNING_OF_TIME } from '../../constants'
+import createFailures from '../../utilities/createFailures'
 
-export default (testValue = BEGINNING_OF_TIME) => value =>
+export default (testValue: Maybe<Date>): Function => (
+  value: Maybe<Date>
+): Either<Failures, Maybe<Date>> =>
   isNothing(value) ||
   (not(equals(testValue)(value)) && equals(value)(min(testValue)(value)))
     ? Right(value)
-    : Left(createError(NOT_BEFORE_DATE_TIME, value, testValue))
+    : Left(createFailures(NOT_BEFORE_DATE_TIME, value, testValue))

@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import gtWords from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('fieldValidators/string/gtWords', module)
   .add("Just('Bob is dead!') > 3 words?", () => (
     <code>
-      gtWords(Just(3))(Just('Bob is dead!'))
+      <b>gtWords(Just(3))(Just('Bob is dead!'))</b>
       <br />
       <br />
       Expected:
@@ -24,7 +24,7 @@ storiesOf('fieldValidators/string/gtWords', module)
   ))
   .add("Just('Tommy is no more, too.') > 3 words?", () => (
     <code>
-      gtWords(Just(3))(Just('Tommy is no more, too.'))
+      <b>gtWords(Just(3))(Just('Tommy is no more, too.'))</b>
       <br />
       <br />
       Expected:
@@ -39,7 +39,7 @@ storiesOf('fieldValidators/string/gtWords', module)
   ))
   .add('Nothing > 3 words?', () => (
     <code>
-      gtWords(Just(3))(Nothing)
+      <b>gtWords(Just(3))(Nothing)</b>
       <br />
       <br />
       Expected:
@@ -54,7 +54,7 @@ storiesOf('fieldValidators/string/gtWords', module)
   ))
   .add("Just('Tommy is no more, too.') > Nothing words?", () => (
     <code>
-      gtWords(Nothing)(Just('Tommy is no more, too.'))
+      <b>gtWords(Nothing)(Just('Tommy is no more, too.'))</b>
       <br />
       <br />
       Expected:

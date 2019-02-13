@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
-import { show, Just, Nothing } from 'sanctuary'
+import { Just, Nothing, show } from 'sanctuary'
 
 import notNull from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('baseValidators/notNull', module)
   .add("Just('test')", () => (
     <code>
-      notNull(Just('test'))
+      <b>notNull(Just('test'))</b>
       <br />
       <br />
       Expected:
@@ -23,12 +23,13 @@ storiesOf('baseValidators/notNull', module)
   ))
   .add('Nothing', () => (
     <code>
-      notNull(Nothing)
+      <b>notNull(Nothing)</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`} errorType: "IS_NULL", value: Nothing {`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "IS_NULL"{`}`}], "value":
+      Nothing{`}`})
       <br />
       <br />
       Actual:

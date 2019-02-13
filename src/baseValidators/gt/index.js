@@ -3,11 +3,11 @@
 import { Just, Left, Right, gt, isNothing } from 'sanctuary'
 
 import { NOT_GT } from '../../errorTypes'
-import createError from '../../utilities/createError'
+import createFailures from '../../utilities/createFailures'
 
-export default (testValue: Maybe<Number>): Function => (
-  value: Maybe<Number>
-): Either<Object, Maybe<Number>> =>
+export default (testValue: Maybe<number>): Function => (
+  value: Maybe<number>
+): Either<Failures, Maybe<number>> =>
   isNothing(value) || gt(testValue)(value)
     ? Right(value)
-    : Left(createError(NOT_GT, value, testValue))
+    : Left(createFailures(NOT_GT, value, testValue))

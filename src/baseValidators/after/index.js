@@ -12,13 +12,12 @@ import {
 } from 'sanctuary'
 
 import { NOT_AFTER_DATE_TIME } from '../../errorTypes'
-import createError from '../../utilities/createError'
+import createFailures from '../../utilities/createFailures'
 
-// after :: testValue -> value -> Either<Maybe<Date>>
-export default function after (testValue: Maybe<Date>): Function {
-  return (value: Maybe<Date>): Either<Maybe<Date>> =>
-    isNothing(value) ||
-    (not(equals(testValue)(value)) && equals(value)(max(testValue)(value)))
-      ? Right(value)
-      : Left(createError(NOT_AFTER_DATE_TIME, value, testValue))
-}
+export default (testValue: Maybe<Date>): Function => (
+  value: Maybe<Date>
+): Either<Failures, Maybe<Date>> =>
+  isNothing(value) ||
+  (not(equals(testValue)(value)) && equals(value)(max(testValue)(value)))
+    ? Right(value)
+    : Left(createFailures(NOT_AFTER_DATE_TIME, value, testValue))
