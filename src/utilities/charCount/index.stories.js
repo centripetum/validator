@@ -1,28 +1,53 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import charCount from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('utilities/charCount', module)
   .add("Just('Bob')", () => (
     <code>
-      Just(<q>Bob</q>) has <b>{show(charCount(Just('Bob')))} characters</b>
+      <b>charCount(Just('Bob'))</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Just (3)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(charCount(Just('Bob')))}
     </code>
   ))
   .add("Just('Tommy')", () => (
     <code>
-      Just(<q>Tommy</q>) has <b>{show(charCount(Just('Tommy')))} characters</b>
+      <b>charCount(Just('Tommy'))</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Just (5)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(charCount(Just('Tommy')))}
     </code>
   ))
   .add('Nothing', () => (
     <code>
-      Nothing has <b>{show(charCount(Nothing))} characters</b>
-    </code>
-  ))
-  .add('undefined', () => (
-    <code>
-      undefined has <b>{show(charCount())} characters</b> (defaults to Nothing)
+      <b>charCount(Nothing)</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Nothing
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(charCount(Nothing))}
     </code>
   ))

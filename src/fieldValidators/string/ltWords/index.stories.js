@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import ltWords from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('fieldValidators/string/ltWords', module)
   .add("Just('Bob is dead!') < 5 words?", () => (
     <code>
-      ltWords(Just(5))(Just('Bob is dead!'))
+      <b>ltWords(Just(5))(Just('Bob is dead!'))</b>
       <br />
       <br />
       Expected:
@@ -23,13 +23,13 @@ storiesOf('fieldValidators/string/ltWords', module)
   ))
   .add("Just('Tommy is no more, too!') < 5 words?", () => (
     <code>
-      ltWords(Just(5))(Just('Tommy is no more, too!'))
+      <b>ltWords(Just(5))(Just('Tommy is no more, too!'))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_WORDS", "testValue": Just (5), "value":
-      Just ("Tommy is no more, too!"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_WORDS", "testValue":
+      Just (5){`}`}], "value": Just ("Tommy is no more, too!"){`}`})
       <br />
       <br />
       Actual:
@@ -39,7 +39,7 @@ storiesOf('fieldValidators/string/ltWords', module)
   ))
   .add('Nothing < 5 words?', () => (
     <code>
-      ltWords(Just(5))(Nothing)
+      <b>ltWords(Just(5))(Nothing)</b>
       <br />
       <br />
       Expected:
@@ -54,13 +54,13 @@ storiesOf('fieldValidators/string/ltWords', module)
   ))
   .add("Just('Tommy is no more, too!') < Nothing words?", () => (
     <code>
-      ltWords(Nothing)(Just('Tommy is no more, too!'))
+      <b>ltWords(Nothing)(Just('Tommy is no more, too!'))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_WORDS", "testValue": Nothing, "value":
-      Just ("Tommy is no more, too!"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_WORDS", "testValue":
+      Nothing{`}`}], "value": Just ("Tommy is no more, too!"){`}`})
       <br />
       <br />
       Actual:

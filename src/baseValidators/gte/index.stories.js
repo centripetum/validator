@@ -1,20 +1,20 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import gte from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('baseValidators/gte', module)
   .add('19 >= 20?', () => (
     <code>
-      gte(Just(20))(Just(19))
+      <b>gte(Just(20))(Just(19))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "NOT_GTE", "testValue": Just (20), "value": Just
-      (19){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_GTE", "testValue": Just
+      (20){`}`}], "value": Just (19){`}`})
       <br />
       <br />
       Actual:
@@ -24,7 +24,7 @@ storiesOf('baseValidators/gte', module)
   ))
   .add('20 >= 20?', () => (
     <code>
-      gte(Just(20))(Just(20))
+      <b>gte(Just(20))(Just(20))</b>
       <br />
       <br />
       Expected:
@@ -39,7 +39,7 @@ storiesOf('baseValidators/gte', module)
   ))
   .add('21 >= 20?', () => (
     <code>
-      gte(Just(20))(Just(21))
+      <b>gte(Just(20))(Just(21))</b>
       <br />
       <br />
       Expected:
@@ -52,25 +52,9 @@ storiesOf('baseValidators/gte', module)
       {show(gte(Just(20))(Just(21)))}
     </code>
   ))
-  .add('21 >= undefined?', () => (
-    <code>
-      gte()(Just(21))
-      <br />
-      <br />
-      Expected:
-      <br />
-      Left ({`{`}"errorType": "NOT_GTE", "testValue": Just (Infinity), "value":
-      Just (21){`}`})
-      <br />
-      <br />
-      Actual:
-      <br />
-      {show(gte()(Just(21)))}
-    </code>
-  ))
   .add('Nothing >= 20?', () => (
     <code>
-      gte(Just(20))(Nothing)
+      <b>gte(Just(20))(Nothing)</b>
       <br />
       <br />
       Expected:

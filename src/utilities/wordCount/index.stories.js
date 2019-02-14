@@ -1,30 +1,53 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
+import { storiesOf } from '@storybook/react'
 import wordCount from './'
 
 storiesOf('utilities/wordCount', module)
   .add("Just('Bob is dead')", () => (
     <code>
-      Just(<q>Bob is dead</q>) has{' '}
-      <b>{show(wordCount(Just('Bob is dead')))} words</b>
+      <b>wordCount(Just('Bob is dead'))</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Just (3)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(wordCount(Just('Bob is dead')))}
     </code>
   ))
   .add("Just('Tommy is no more, too')", () => (
     <code>
-      Just(<q>Tommy is no more, too</q>) has{' '}
-      <b>{show(wordCount(Just('Tommy is no more, too')))} words</b>
+      <b>wordCount(Just('Tommy is no more, too'))</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Just (5)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(wordCount(Just('Tommy is no more, too')))}
     </code>
   ))
   .add('Nothing', () => (
     <code>
-      Nothing has <b>{show(wordCount(Nothing))} words</b>
-    </code>
-  ))
-  .add('undefined', () => (
-    <code>
-      undefined has <b>{show(wordCount())} words</b> (defaults to Nothing)
+      <b>wordCount(Nothing)</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Nothing
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(wordCount(Nothing))}
     </code>
   ))

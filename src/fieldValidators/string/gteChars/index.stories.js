@@ -1,20 +1,20 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import gteChars from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('fieldValidators/string/gteChars', module)
   .add("Just('Bob') >= 5 characters?", () => (
     <code>
-      gteChars(Just(5))(Just('Bob'))
+      <b>gteChars(Just(5))(Just('Bob'))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_FEW_CHARACTERS", "testValue": Just (5),
-      "value": Just ("Bob"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_FEW_CHARACTERS",
+      "testValue": Just (5){`}`}], "value": Just ("Bob"){`}`})
       <br />
       <br />
       Actual:
@@ -24,7 +24,7 @@ storiesOf('fieldValidators/string/gteChars', module)
   ))
   .add("Just('Tommy') >= 5 characters?", () => (
     <code>
-      gteChars(Just(5))(Just('Tommy'))
+      <b>gteChars(Just(5))(Just('Tommy'))</b>
       <br />
       <br />
       Expected:
@@ -39,7 +39,7 @@ storiesOf('fieldValidators/string/gteChars', module)
   ))
   .add('Nothing >= 5 characters?', () => (
     <code>
-      gteChars(Just(5))(Nothing)
+      <b>gteChars(Just(5))(Nothing)</b>
       <br />
       <br />
       Expected:
@@ -54,7 +54,7 @@ storiesOf('fieldValidators/string/gteChars', module)
   ))
   .add("Just('Tommy') >= Nothing characters?", () => (
     <code>
-      gteChars(Nothing)(Just('Tommy'))
+      <b>gteChars(Nothing)(Just('Tommy'))</b>
       <br />
       <br />
       Expected:

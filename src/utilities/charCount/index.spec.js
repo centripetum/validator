@@ -2,8 +2,8 @@ import { Just, Nothing } from 'sanctuary'
 
 import charCount from './'
 
-describe('validation:utilities:charCount', () => {
-  it(`returns Just(the correct character count) for Just(a string)`, () => {
+describe('utilities:charCount', () => {
+  it(`returns Just(17) for Just(' some characters ')`, () => {
     expect(charCount(Just(' some characters '))).toEqual(Just(17))
   })
 
@@ -12,10 +12,6 @@ describe('validation:utilities:charCount', () => {
   })
 
   it(`returns Nothing when Nothing received`, () => {
-    expect(charCount(undefined)).toEqual(Nothing)
-  })
-
-  it(`returns Nothing when undefined received`, () => {
-    expect(charCount(undefined)).toEqual(Nothing)
+    expect(charCount(Nothing)).toEqual(Nothing)
   })
 })

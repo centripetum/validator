@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { storiesOf } from '@storybook/react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
 import ltChars from './'
+import { storiesOf } from '@storybook/react'
 
 storiesOf('fieldValidators/string/ltChars', module)
   .add("Just('Bob') < 5 characters?", () => (
     <code>
-      ltChars(Just(5))(Just('Bob'))
+      <b>ltChars(Just(5))(Just('Bob'))</b>
       <br />
       <br />
       Expected:
@@ -23,13 +23,13 @@ storiesOf('fieldValidators/string/ltChars', module)
   ))
   .add("Just('Tommy') < 5 characters?", () => (
     <code>
-      ltChars(Just(5))(Just('Tommy'))
+      <b>ltChars(Just(5))(Just('Tommy'))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_CHARACTERS", "testValue": Just (5),
-      "value": Just ("Tommy"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_CHARACTERS",
+      "testValue": Just (5){`}`}], "value": Just ("Tommy"){`}`})
       <br />
       <br />
       Actual:
@@ -39,7 +39,7 @@ storiesOf('fieldValidators/string/ltChars', module)
   ))
   .add('Nothing < 5 characters?', () => (
     <code>
-      ltChars(Just(5))(Nothing)
+      <b>ltChars(Just(5))(Nothing)</b>
       <br />
       <br />
       Expected:
@@ -54,13 +54,13 @@ storiesOf('fieldValidators/string/ltChars', module)
   ))
   .add("Just('Tommy') < Nothing characters?", () => (
     <code>
-      ltChars(Nothing)(Just('Tommy'))
+      <b>ltChars(Nothing)(Just('Tommy'))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"errorType": "TOO_MANY_CHARACTERS", "testValue": Nothing,
-      "value": Just ("Tommy"){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "TOO_MANY_CHARACTERS",
+      "testValue": Nothing{`}`}], "value": Just ("Tommy"){`}`})
       <br />
       <br />
       Actual:

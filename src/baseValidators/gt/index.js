@@ -1,9 +1,14 @@
-import { Just, Left, Right, gt, isNothing } from 'sanctuary'
+// @flow
+
+import { Either, Just, Left, Maybe, Right, gt, isNothing } from 'sanctuary'
 
 import { NOT_GT } from '../../errorTypes'
-import createError from '../../utilities/createError'
 
-export default (testValue = Just(Infinity)) => value =>
+import createFailures from '../../utilities/createFailures'
+
+export default (testValue: Maybe<number>): (() => mixed) => (
+  value: Maybe<number>
+): Either<Failures, Maybe<number>> =>
   isNothing(value) || gt(testValue)(value)
     ? Right(value)
-    : Left(createError(NOT_GT, value, testValue))
+    : Left(createFailures(NOT_GT, value, testValue))
