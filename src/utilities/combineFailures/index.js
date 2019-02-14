@@ -20,16 +20,24 @@ import {
 
 import flatMap from '../flatMap'
 
-const mapFailures: Function = map(prop('failures'))
+const mapFailures: () => mixed = map(prop('failures'))
 
-const unique: Function = pipe([
+const unique: () => mixed = pipe([
   reduce(xs => x => ({ ...xs, [prop('errorType')(x)]: x }))({}),
   values
 ])
 
-const mergeFailures: Function = pipe([mapFailures, flatMap, unique])
+const mergeFailures: (Array<Failures>) => mixed = pipe([
+  mapFailures,
+  flatMap,
+  unique
+])
 
-const getValue: Function = pipe([head, maybeToNullable, prop('value')])
+const getValue: (Array<Failures>) => mixed = pipe([
+  head,
+  maybeToNullable,
+  prop('value')
+])
 
 export default (errors: Array<Failures> = []): Left<Failures> =>
   Left({

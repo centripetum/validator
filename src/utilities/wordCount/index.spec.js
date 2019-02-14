@@ -20,8 +20,4 @@ describe('utilities:wordCount', () => {
   it(`returns Nothing when Nothing received`, () => {
     expect(wordCount(Nothing)).toEqual(Nothing)
   })
-
-  it(`returns Nothing when undefined received`, () => {
-    expect(wordCount()).toEqual(Nothing)
-  })
 })

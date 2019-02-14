@@ -1,7 +1,7 @@
-import { Just, Right, Left, Nothing } from 'sanctuary'
+import { Just, Left, Nothing, Right } from 'sanctuary'
 
-import notNull from './'
 import { IS_NULL } from '../../errorTypes'
+import notNull from './'
 
 const test = 'test'
 
@@ -12,7 +12,7 @@ describe('baseValidators:notNull', () => {
 
   it(`returns Left({ errorType: IS_NULL, value: Nothing }) for Nothing`, () => {
     expect(notNull(Nothing)).toEqual(
-      Left({ errorType: IS_NULL, value: Nothing })
+      Left({ failures: [{ errorType: IS_NULL }], value: Nothing })
     )
   })
 })

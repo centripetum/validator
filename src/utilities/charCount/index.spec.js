@@ -12,10 +12,6 @@ describe('utilities:charCount', () => {
   })
 
   it(`returns Nothing when Nothing received`, () => {
-    expect(charCount(undefined)).toEqual(Nothing)
-  })
-
-  it(`returns Nothing when undefined received`, () => {
-    expect(charCount(undefined)).toEqual(Nothing)
+    expect(charCount(Nothing)).toEqual(Nothing)
   })
 })

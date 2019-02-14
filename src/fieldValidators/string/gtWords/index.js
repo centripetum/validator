@@ -3,10 +3,11 @@
 import { Either, Left, Maybe, Right, gt, isNothing } from 'sanctuary'
 
 import { TOO_FEW_WORDS } from '../../../errorTypes'
+
 import createFailures from '../../../utilities/createFailures'
 import wordCount from '../../../utilities/wordCount'
 
-export default (testValue: Maybe<number>): Function => (
+export default (testValue: Maybe<number>): (() => mixed) => (
   value: Maybe<string>
 ): Either<Failures, Maybe<string>> =>
   isNothing(value) || gt(testValue)(wordCount(value))

@@ -1,11 +1,12 @@
 // @flow
 
-import { Left, Right, equals, isNothing, min } from 'sanctuary'
+import { Either, Left, Maybe, Right, equals, isNothing, min } from 'sanctuary'
 
 import { NOT_ON_OR_BEFORE_DATE_TIME } from '../../errorTypes'
+
 import createFailures from '../../utilities/createFailures'
 
-export default (testValue: Maybe<Date>): Function => (
+export default (testValue: Maybe<Date>): (() => mixed) => (
   value: Maybe<Date>
 ): Either<Failures, Maybe<Date>> =>
   isNothing(value) || equals(value)(min(testValue)(value))

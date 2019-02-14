@@ -1,7 +1,7 @@
-import { Just, Right, Left, Nothing } from 'sanctuary'
+import { Just, Left, Nothing, Right } from 'sanctuary'
 
-import isString from './'
 import { NOT_A_STRING } from '../../errorTypes'
+import isString from './'
 
 describe('typeValidators:isString', () => {
   it(`returns Right(Just('test')) for Just('test')`, () => {
@@ -12,39 +12,45 @@ describe('typeValidators:isString', () => {
     expect(isString(Just(''))).toEqual(Right(Just('')))
   })
 
-  it(`returns Left({ errorType: NOT_A_STRING, value: Just(0) }) for Just(${0})`, () => {
+  it(`returns Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(0) }) for Just(${0})`, () => {
     expect(isString(Just(0))).toEqual(
-      Left({ errorType: NOT_A_STRING, value: Just(0) })
+      Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(0) })
     )
   })
 
-  it(`returns Left({ errorType: NOT_A_STRING, value: Just(false) }) for Just(${false})`, () => {
+  it(`returns Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(false) }) for Just(${false})`, () => {
     expect(isString(Just(false))).toEqual(
-      Left({ errorType: NOT_A_STRING, value: Just(false) })
+      Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(false) })
     )
   })
 
-  it(`returns Left({ errorType: NOT_A_STRING, value: Just([1, 2, 3]) }) for Just(${[
+  it(`returns Left ({failures: [{errorType: NOT_A_STRING}], value: Just ([1, 2, 3])}) for Just(${[
     1,
     2,
     3
   ]})`, () => {
     expect(isString(Just([1, 2, 3]))).toEqual(
-      Left({ errorType: NOT_A_STRING, value: Just([1, 2, 3]) })
+      Left({
+        failures: [{ errorType: 'NOT_A_STRING' }],
+        value: Just([1, 2, 3])
+      })
     )
   })
 
-  it(`returns Left({ errorType: NOT_A_STRING, value: Just({ test: true }) }) for Just(${{
+  it(`returns Left ({failures: [{errorType: NOT_A_STRING}], value: Just ({test: true})}) for Just(${{
     test: true
   }})`, () => {
     expect(isString(Just({ test: true }))).toEqual(
-      Left({ errorType: NOT_A_STRING, value: Just({ test: true }) })
+      Left({
+        failures: [{ errorType: 'NOT_A_STRING' }],
+        value: Just({ test: true })
+      })
     )
   })
 
-  it(`returns Left({ errorType: NOT_A_STRING, value: Nothing }) for Nothing`, () => {
+  it(`returns Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Nothing }) for Nothing`, () => {
     expect(isString(Nothing)).toEqual(
-      Left({ errorType: NOT_A_STRING, value: Nothing })
+      Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Nothing })
     )
   })
 })

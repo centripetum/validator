@@ -12,9 +12,10 @@ import {
 } from 'sanctuary'
 
 import { NOT_AFTER_DATE_TIME } from '../../errorTypes'
+
 import createFailures from '../../utilities/createFailures'
 
-export default (testValue: Maybe<Date>): Function => (
+export default (testValue: Maybe<Date>): (() => mixed) => (
   value: Maybe<Date>
 ): Either<Failures, Maybe<Date>> =>
   isNothing(value) ||
