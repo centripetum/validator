@@ -17,7 +17,7 @@ import isEmpty from '../../utilities/isEmpty'
 export default (validators: Array<() => mixed>): (() => mixed) => (
   value: Maybe<mixed> = Nothing
 ): Either<Failures, mixed> => {
-  const results: Array<Either<Failures, mixed>> = map(validotor =>
+  const results: Array<Either<Failures, mixed>> = map(validator =>
     validator(value)
   )(validators)
 
