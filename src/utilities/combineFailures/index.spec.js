@@ -4,16 +4,24 @@ import { Just, Left, Nothing } from 'sanctuary'
 import combineFailures from './'
 import createFailures from '../createFailures'
 
-const failureOne = createFailures('FAIL_1', Just(1), Just(5))
-const failureTwo = createFailures('FAIL_2', Just(3), Just(7))
-const failureThree = createFailures('FAIL_3', Just(5), Just(9))
+const value = Just(1)
+const testValueOne = Just(5)
+const testValueTwo = Just(7)
+const testValueThree = Just(9)
+const errorOne = 'FAIL_1'
+const errorTwo = 'FAIL_2'
+const errorThree = 'FAIL_3'
+
+const failureOne = createFailures(errorOne, value, testValueOne)
+const failureTwo = createFailures(errorTwo, value, testValueTwo)
+const failureThree = createFailures(errorThree, value, testValueThree)
 
 describe('utilities:combineFailures', () => {
   it('handles a single failure', () => {
     expect(combineFailures([failureOne])).toMatchObject(
       Left({
-        failures: [{ errorType: 'FAIL_1', testValue: Just(5) }],
-        value: Just(1)
+        failures: [{ errorType: errorOne, testValue: testValueOne }],
+        value
       })
     )
   })
@@ -24,11 +32,11 @@ describe('utilities:combineFailures', () => {
     ).toMatchObject(
       Left({
         failures: [
-          { errorType: 'FAIL_1', testValue: Just(5) },
-          { errorType: 'FAIL_2', testValue: Just(7) },
-          { errorType: 'FAIL_3', testValue: Just(9) }
+          { errorType: errorOne, testValue: testValueOne },
+          { errorType: errorTwo, testValue: testValueTwo },
+          { errorType: errorThree, testValue: testValueThree }
         ],
-        value: Just(1)
+        value
       })
     )
   })
@@ -37,10 +45,10 @@ describe('utilities:combineFailures', () => {
     expect(combineFailures([failureOne, failureTwo, failureOne])).toMatchObject(
       Left({
         failures: [
-          { errorType: 'FAIL_1', testValue: Just(5) },
-          { errorType: 'FAIL_2', testValue: Just(7) }
+          { errorType: errorOne, testValue: testValueOne },
+          { errorType: errorTwo, testValue: testValueTwo }
         ],
-        value: Just(1)
+        value
       })
     )
   })
