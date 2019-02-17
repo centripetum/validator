@@ -6,6 +6,7 @@ describe('baseValidators:lte', () => {
   it('returns Right(Just(11) for lte(Just(12))(Just(11))', () => {
     expect(lte(Just(12))(Just(11))).toEqual(Right(Just(11)))
   })
+
   it('returns Right(Just(12) for lte(Just(12))(Just(12))', () => {
     expect(lte(Just(12))(Just(12))).toEqual(Right(Just(12)))
   })
