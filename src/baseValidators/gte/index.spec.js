@@ -2,9 +2,8 @@ import { Just, Left, Nothing, Right, isNothing } from 'sanctuary'
 
 import { NOT_GTE } from '../../errorTypes'
 import gte from './'
-const test = 0
 
-describe('I am testing baseValidators:gte', () => {
+describe('baseValidators:gte', () => {
   it(`returns Left(NOT_GTE error) when testvalue is less than Value)`, () => {
     expect(gte(Just(20))(Just(19))).toEqual(
       Left({
