@@ -6,11 +6,11 @@ import notNull from './'
 const test = 'test'
 
 describe('baseValidators:notNull', () => {
-  it(`returns Right(Just(${test})) for Just(${test})`, () => {
+  it(`returns Right(Just(value)) for Just(value)`, () => {
     expect(notNull(Just(test))).toEqual(Right(Just(test)))
   })
 
-  it(`returns Left({ errorType: IS_NULL, value: Nothing }) for Nothing`, () => {
+  it(`returns Left(IS_NULL error) for Nothing`, () => {
     expect(notNull(Nothing)).toEqual(
       Left({ failures: [{ errorType: IS_NULL }], value: Nothing })
     )

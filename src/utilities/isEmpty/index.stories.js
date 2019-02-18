@@ -8,7 +8,7 @@ import { storiesOf } from '@storybook/react'
 const arr = [1, 2, 3]
 
 storiesOf('utilities/isEmpty', module)
-  .add(`isEmpty(${arr})`, () => (
+  .add(`Not empty`, () => (
     <code>
       <b>isEmpty({show(arr)})</b>
       <br />
@@ -23,7 +23,7 @@ storiesOf('utilities/isEmpty', module)
       {show(isEmpty(arr))}
     </code>
   ))
-  .add(`isEmpty([])`, () => (
+  .add(`Empty`, () => (
     <code>
       <b>isEmpty([])</b>
       <br />

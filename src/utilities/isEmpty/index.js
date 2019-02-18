@@ -1,3 +1,5 @@
 import { equals, pipe, size } from 'sanctuary'
 
-export default pipe([size, equals(0)])
+const isEmpty = pipe([size, equals(0)])
+
+export default isEmpty
