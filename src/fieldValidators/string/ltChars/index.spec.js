@@ -2,7 +2,7 @@ import { Just, Left, Nothing, Right } from 'sanctuary'
 
 import ltChars from './'
 
-describe('fieldValidators:string:lt', () => {
+describe('fieldValidators:string:ltChars', () => {
   it(`returns Right(Just(value)) when value has fewer characters than testValue`, () => {
     expect(ltChars(Just(5))(Just('Bob'))).toEqual(Right(Just('Bob')))
   })
