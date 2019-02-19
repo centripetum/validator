@@ -27,6 +27,7 @@ describe('baseValidators:gteWords', () => {
   it('returns Right(Just(value)) when test words count in a string is nothing than actual words count in string', () => {
     expect(gteWords(Just(5))(Nothing)).toEqual(Right(Nothing))
   })
+
   it(`returns Right(Nothing) when test words count in a string is equal to nothing words count in string`, () => {
     expect(gteWords(Nothing)(Just('Tommy is no more, too!'))).toEqual(
       Right(Just('Tommy is no more, too!'))
