@@ -19,7 +19,9 @@ import isEmpty from '../../utilities/isEmpty'
 export default (validators: Array<() => mixed>): (() => mixed) => (
   value: Maybe<mixed> = Nothing
 ): Either<Failures, mixed> => {
-  const errors: Array<Left> = lefts(map(validator => f(validator))(validators))
+  const errors: Array<Left> = lefts(
+    map(validator => validator(value))(validators)
+  )
 
   return isEmpty(errors) ? Right(value) : combineFailures(errors)
 }
