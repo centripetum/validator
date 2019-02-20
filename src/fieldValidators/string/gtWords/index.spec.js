@@ -33,4 +33,5 @@ describe('baseValidators:gtWords', () => {
       Right(Just('Tommy is no more, too.'))
     )
   })
+  
 })
