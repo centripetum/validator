@@ -10,7 +10,7 @@ describe('fieldValidators:string:ltChars', () => {
     expect(lteChars(testValue)(Just('Bob'))).toEqual(Right(Just('Bob')))
   })
 
-  it(`returns Left(TOO_MANY_CHARACTERS, testValue, value) when value has more chracters than the testValue`, () => {
+  it(`returns Left(TOO_MANY_CHARACTERS error) when value has more chracters than the testValue`, () => {
     expect(lteChars(testValue)(Just('Tommy'))).toEqual(
       Left({
         failures: [{ errorType: TOO_MANY_CHARACTERS, testValue: testValue }],
