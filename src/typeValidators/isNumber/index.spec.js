@@ -8,6 +8,10 @@ describe('typeValidators:isNumber', () => {
     expect(isNumber(Just(12))).toEqual(Right(Just(12)))
   })
 
+  it(`returns Right(Just(value)) when value is number`, () => {
+    expect(isNumber(Just(12.01))).toEqual(Right(Just(12.01)))
+  })
+
   it(`returns Left(NOT_A_NUMBER error) when value is Nothing`, () => {
     expect(isNumber(Nothing)).toEqual(
       Left({
