@@ -4,7 +4,7 @@ import { TOO_FEW_CHARACTERS } from '../../../errorTypes'
 import gteChars from './'
 
 describe('fieldValidators:gteChars', () => {
-  it(`returns Left(TOO_FEW_CHARACTERS) when value is less than testValue`, () => {
+  it(`returns Left(TOO_FEW_CHARACTERS error) when value is less than testValue`, () => {
     expect(gteChars(Just(5))(Just('Bob'))).toEqual(
       Left({
         failures: [
