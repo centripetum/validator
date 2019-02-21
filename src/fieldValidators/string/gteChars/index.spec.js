@@ -25,8 +25,4 @@ describe('fieldValidators:gteChars', () => {
   it(`returns Right(Nothing) when value is nothing`, () => {
     expect(gteChars(Just(5))(Nothing)).toEqual(Right(Nothing))
   })
-
-  it(`returns Right(Just(value)) when the testValue is nothing`, () => {
-    expect(gteChars(Nothing(Just('Tommy'))).toEqual(Right('Tommy')))
-  })
 })
