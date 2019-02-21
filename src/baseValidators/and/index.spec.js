@@ -13,15 +13,15 @@ describe('baseValidators:and', () => {
     expect(and([success, success])()).toEqual(Right(Nothing))
   })
 
-  it(`returns a Right(value) for and([success, success])(value)`, () => {
+  it(`returns a Right(Just(value)) for success AND success`, () => {
     expect(and([success, success])(value)).toEqual(Right(value))
   })
 
-  it(`returns a Right(value) for and([success, success, success])(value)`, () => {
+  it(`returns a Right(Just(value)) for success AND success AND success`, () => {
     expect(and([success, success, success])(value)).toEqual(Right(value))
   })
 
-  it(`returns a Left for failure and success`, () => {
+  it(`returns a Left(error) for failure AND success`, () => {
     expect(and([failure('x'), success])(value)).toEqual(
       Left({
         failures: [{ errorType: 'FAILURE_x', testValue: Just('test') }],
@@ -30,7 +30,7 @@ describe('baseValidators:and', () => {
     )
   })
 
-  it(`returns a Left for success and failure`, () => {
+  it(`returns a Left(error) for success AND failure`, () => {
     expect(and([success, failure('y')])(value)).toEqual(
       Left({
         failures: [{ errorType: 'FAILURE_y', testValue: Just('test') }],
@@ -39,7 +39,7 @@ describe('baseValidators:and', () => {
     )
   })
 
-  it(`returns a combined Left for failure and failure`, () => {
+  it(`returns a Left(combined error) for failure AND failure`, () => {
     expect(and([failure('x'), failure('y')])(value)).toEqual(
       Left({
         failures: [
@@ -51,7 +51,7 @@ describe('baseValidators:and', () => {
     )
   })
 
-  it(`returns a combined Left for failure and failure and failure`, () => {
+  it(`returns a Left(combined error) for failure AND failure AND failure`, () => {
     expect(and([failure('x'), failure('y'), failure('z')])(value)).toEqual(
       Left({
         failures: [
