@@ -18,7 +18,7 @@ describe('fieldValidators:gteChars', () => {
     )
   })
 
-  it(`returns Right(Just(value)) when value is more than testValue`, () => {
+  it(`returns Right(Just(value)) when value is more than or equal to testValue`, () => {
     expect(gteChars(Just(5))(Just('Tommy'))).toEqual(Right(Just('Tommy')))
   })
 
