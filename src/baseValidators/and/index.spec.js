@@ -39,7 +39,7 @@ describe('baseValidators:and', () => {
     )
   })
 
-  it(`returns a Left(combined error) for failure AND failure`, () => {
+  it(`returns a Left(combined errors) for failure AND failure`, () => {
     expect(and([failure('x'), failure('y')])(value)).toEqual(
       Left({
         failures: [
@@ -51,7 +51,7 @@ describe('baseValidators:and', () => {
     )
   })
 
-  it(`returns a Left(combined error) for failure AND failure AND failure`, () => {
+  it(`returns a Left(combined errors) for failure AND failure AND failure`, () => {
     expect(and([failure('x'), failure('y'), failure('z')])(value)).toEqual(
       Left({
         failures: [
