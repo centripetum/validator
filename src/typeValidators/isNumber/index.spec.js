@@ -56,4 +56,13 @@ describe('typeValidators:isNumber', () => {
       })
     )
   })
+
+  it(`returns Left(NOT_A_NUMBER error) when value is Just(NaN)`, () => {
+    expect(isNumber(Just(NaN))).toEqual(
+      Left({
+        failures: [{ errorType: NOT_A_NUMBER }],
+        value: Just(NaN)
+      })
+    )
+  })
 })
