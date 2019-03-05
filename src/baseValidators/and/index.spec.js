@@ -14,7 +14,7 @@ describe('baseValidators:and', () => {
   })
 
   it(`returns Right(value) for success alone`, () => {
-    expect(and([success])(value)).toEqual(Right(value))
+    expect(and([success])(Nothing)).toEqual(Right(Nothing))
   })
 
   it(`returns Right(value) for success AND success`, () => {
@@ -43,7 +43,7 @@ describe('baseValidators:and', () => {
     )
   })
 
-  it(`returns a Left(error) for failure`, () => {
+  it(`returns a Left(error) for failure alone`, () => {
     expect(and([failure('x')])(value)).toEqual(
       Left({
         failures: [{ errorType: 'FAILURE_x', testValue: Just('test') }],

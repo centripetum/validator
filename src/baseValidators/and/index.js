@@ -16,7 +16,7 @@ import combineFailures from '../../utilities/combineFailures'
 import isEmpty from '../../utilities/isEmpty'
 
 export default (validators: Array<() => mixed>): (() => mixed) => (
-  value: Maybe<mixed> = Nothing
+  value: Maybe<mixed>
 ): Either<Failures, mixed> => {
   const errors: Array<Left> = lefts(
     map(validator => validator(value))(validators)
