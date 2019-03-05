@@ -12,6 +12,10 @@ describe('typeValidators:isString', () => {
     expect(isString(Just(''))).toEqual(Right(Just('')))
   })
 
+  it(`returns Right(Nothing) when value is Nothing`, () => {
+    expect(isString(Nothing)).toEqual(Right(Nothing))
+  })
+
   it(`returns Left(NOT_A_STRING error) when value is Just(0)`, () => {
     expect(isString(Just(0))).toEqual(
       Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(0) })
@@ -39,12 +43,6 @@ describe('typeValidators:isString', () => {
         failures: [{ errorType: 'NOT_A_STRING' }],
         value: Just({ test: true })
       })
-    )
-  })
-
-  it(`returns Left(NOT_A_STRING error) when value is Nothing`, () => {
-    expect(isString(Nothing)).toEqual(
-      Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Nothing })
     )
   })
 })

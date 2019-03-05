@@ -2,43 +2,43 @@ import * as React from 'react'
 
 import { Just, Nothing, show } from 'sanctuary'
 
-import isString from './'
+import isNumber from './'
 import { storiesOf } from '@storybook/react'
 
-storiesOf('typeValidators/isString', module)
-  .add("Just('test')", () => (
+storiesOf('typeValidators/isNumber', module)
+  .add('Just(12)', () => (
     <code>
-      <b>isString(Just('test'))</b>
+      <b>isNumber(Just(12))</b>
       <br />
       <br />
       Expected:
       <br />
-      Right (Just ('test'))
+      Right (Just (12))
       <br />
       <br />
       Actual:
       <br />
-      {show(isString(Just('test')))}
+      {show(isNumber(Just(12)))}
     </code>
   ))
-  .add("Just('')", () => (
+  .add('Just(12.01)', () => (
     <code>
-      <b>isString(Just(''))</b>
+      <b>isNumber(Just(12.01))</b>
       <br />
       <br />
       Expected:
       <br />
-      Right (Just (''))
+      Right (Just (12.01))
       <br />
       <br />
       Actual:
       <br />
-      {show(isString(Just('')))}
+      {show(isNumber(Just(12.01)))}
     </code>
   ))
   .add('Nothing', () => (
     <code>
-      <b>isString(Nothing)</b>
+      <b>isNumber(Nothing)</b>
       <br />
       <br />
       Expected:
@@ -48,72 +48,70 @@ storiesOf('typeValidators/isString', module)
       <br />
       Actual:
       <br />
-      {show(isString(Nothing))}
+      {show(isNumber(Nothing))}
     </code>
   ))
-  .add('Just(0)', () => (
+  .add("Just('test')", () => (
     <code>
-      <b>isString(Just(0))</b>
+      <b>isNumber(Just('test'))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
-      Just (0){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_NUMBER"{'}'}], "value":
+      Just ("test"){'}'})
       <br />
       <br />
       Actual:
       <br />
-      {show(isString(Just(0)))}
+      {show(isNumber(Just('test')))}
     </code>
   ))
   .add('Just(false)', () => (
     <code>
-      <b>isString(Just(false))</b>
+      <b>isNumber(Nothing)</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
-      Just (false){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_NUMBER"{'}'}], "value":
+      Just (false){'}'})
       <br />
       <br />
       Actual:
       <br />
-      {show(isString(Just(false)))}
+      {show(isNumber(Just(false)))}
     </code>
   ))
-  .add('Just([1,2,3])', () => (
+  .add('Just([1, 2, 3])', () => (
     <code>
-      <b>isString(Just([1,2,3]))</b>
+      <b>isNumber(Just([1, 2, 3]))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
-      Just ([1, 2, 3]){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_NUMBER"{'}'}], "value":
+      Just ([1, 2, 3]){'}'})
       <br />
       <br />
       Actual:
       <br />
-      {show(isString(Just([1, 2, 3])))}
+      {show(isNumber(Just([1, 2, 3])))}
     </code>
   ))
   .add('Just({ test: true })', () => (
     <code>
-      <b>
-        isString({`{`} test: true {`}`})
-      </b>
+      <b>isNumber(Just([1, 2, 3]))</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
-      Just ({`{`}"test": true{`}`}){`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_NUMBER"{'}'}], "value":
+      Just ({`{`}"test": true{`}`}){'}'})
       <br />
       <br />
       Actual:
       <br />
-      {show(isString(Just({ test: true })))}
+      {show(isNumber(Just({ test: true })))}
     </code>
   ))
