@@ -43,8 +43,7 @@ storiesOf('typeValidators/isNumber', module)
       <br />
       Expected:
       <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_NUMBER"{'}'}], "value":
-      Nothing{'}'})
+      Right(Nothing)
       <br />
       <br />
       Actual:

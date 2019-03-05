@@ -12,13 +12,8 @@ describe('typeValidators:isNumber', () => {
     expect(isNumber(Just(12.01))).toEqual(Right(Just(12.01)))
   })
 
-  it(`returns Left(NOT_A_NUMBER error) when value is Nothing`, () => {
-    expect(isNumber(Nothing)).toEqual(
-      Left({
-        failures: [{ errorType: NOT_A_NUMBER }],
-        value: Nothing
-      })
-    )
+  it(`returns Right(Nothing) when value is Nothing`, () => {
+    expect(isNumber(Nothing)).toEqual(Right(Nothing))
   })
 
   it(`returns Left(NOT_A_NUMBER error) when value is Just('test')`, () => {

@@ -36,6 +36,21 @@ storiesOf('typeValidators/isString', module)
       {show(isString(Just('')))}
     </code>
   ))
+  .add('Nothing', () => (
+    <code>
+      <b>isString(Nothing)</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right(Nothing)
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(isString(Nothing))}
+    </code>
+  ))
   .add('Just(0)', () => (
     <code>
       <b>isString(Just(0))</b>
@@ -100,21 +115,5 @@ storiesOf('typeValidators/isString', module)
       Actual:
       <br />
       {show(isString(Just({ test: true })))}
-    </code>
-  ))
-  .add('Nothing', () => (
-    <code>
-      <b>isString(Nothing)</b>
-      <br />
-      <br />
-      Expected:
-      <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "NOT_A_STRING"{`}`}], "value":
-      Nothing{`}`})
-      <br />
-      <br />
-      Actual:
-      <br />
-      {show(isString(Nothing))}
     </code>
   ))
