@@ -1,4 +1,4 @@
-import { Left, Nothing, parseDate, Right } from 'sanctuary'
+import { Left, Nothing, Right, parseDate } from 'sanctuary'
 
 import { NOT_ON_OR_AFTER_DATE_TIME } from '../../errorTypes'
 import onOrAfter from './'

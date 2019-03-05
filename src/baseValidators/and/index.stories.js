@@ -12,6 +12,46 @@ const success = v => Right(v)
 const failure = e => v => Left(createFailures('FAILURE_' + e, v, testValue))
 
 storiesOf('baseValidators/and', module)
+  .add('no validators passed', () => (
+    <code>
+      const value = {show(value)}
+      <br />
+      const success = v =&gt; Right(v)
+      <br />
+      <br />
+      <b>and([])(value)</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right ({show(value)})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(and([])(value))}
+    </code>
+  ))
+  .add('success', () => (
+    <code>
+      const value = {show(value)}
+      <br />
+      const success = v =&gt; Right(v)
+      <br />
+      <br />
+      <b>and([success])(value)</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Right ({show(value)})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(and([success])(value))}
+    </code>
+  ))
   .add('success AND success', () => (
     <code>
       const value = {show(value)}
@@ -52,6 +92,34 @@ storiesOf('baseValidators/and', module)
       {show(and([success, success, success])(value))}
     </code>
   ))
+  .add('success AND failure', () => (
+    <code>
+      const value = {show(value)}
+      <br />
+      const testValue = {show(testValue)}
+      <br />
+      const success = v =&gt; Right(v)
+      <br />
+      const failure = e =&gt; v =&gt; Left(createFailures('FAILURE_' + e, v,
+      testValue))
+      <br />
+      <br />
+      <b>and([success, failure('y')])({show(value)})</b>
+      <br />
+      <br />
+      Expected:
+      <br />
+      Left ({`{`}"failures": [{`{`}"errorType": "FAILURE_y", "testValue":{' '}
+      {show(testValue)}
+      {`}`}], "value": {show(value)}
+      {`}`})
+      <br />
+      <br />
+      Actual:
+      <br />
+      {show(and([success, failure('y')])(value))}
+    </code>
+  ))
   .add('failure AND success', () => (
     <code>
       const value = {show(value)}
@@ -80,32 +148,26 @@ storiesOf('baseValidators/and', module)
       {show(and([failure('x'), success])(value))}
     </code>
   ))
-  .add('success AND failure', () => (
+  .add('failure', () => (
     <code>
       const value = {show(value)}
-      <br />
-      const testValue = {show(testValue)}
-      <br />
-      const success = v =&gt; Right(v)
       <br />
       const failure = e =&gt; v =&gt; Left(createFailures('FAILURE_' + e, v,
       testValue))
       <br />
       <br />
-      <b>and([success, failure('y')])({show(value)})</b>
+      <b>and([failure('x')])(value)</b>
       <br />
       <br />
       Expected:
       <br />
-      Left ({`{`}"failures": [{`{`}"errorType": "FAILURE_y", "testValue":{' '}
-      {show(testValue)}
-      {`}`}], "value": {show(value)}
-      {`}`})
+      Left ({`{`}"failures": [{`{`}"errorType": "FAILURE_x", "testValue": Just
+      ("test"){`}`}], "value": Just (1){`}`})
       <br />
       <br />
       Actual:
       <br />
-      {show(and([success, failure('y')])(value))}
+      {show(and([failure('x')])(value))}
     </code>
   ))
   .add('failure AND failure', () => (

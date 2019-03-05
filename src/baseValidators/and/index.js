@@ -9,8 +9,7 @@ import {
   equals,
   lefts,
   map,
-  pipe,
-  size
+  pipe
 } from 'sanctuary'
 
 import combineFailures from '../../utilities/combineFailures'
