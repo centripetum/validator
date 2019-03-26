@@ -1,6 +1,6 @@
 // @flow
 
-import { Either, Left, Maybe, Nothing, Right, isNothing, lte } from 'sanctuary'
+import { Either, Left, Maybe, Right, isNothing, lte } from 'sanctuary'
 
 import { NOT_LTE } from '../../errorTypes'
 import createFailures from '../../utilities/createFailures'

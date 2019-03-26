@@ -1,9 +1,8 @@
 // @flow
 
-import { Either, Left, Maybe, Nothing, Right, isNothing, lt } from 'sanctuary'
+import { Either, Left, Maybe, Right, isNothing, lt } from 'sanctuary'
 
 import { NOT_LT } from '../../errorTypes'
-
 import createFailures from '../../utilities/createFailures'
 
 export default (testValue: Maybe<number>): (() => mixed) => (

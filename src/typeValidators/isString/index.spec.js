@@ -16,31 +16,31 @@ describe('typeValidators:isString', () => {
     expect(isString(Nothing)).toEqual(Right(Nothing))
   })
 
-  it(`returns Left(NOT_A_STRING error) when value is Just(0)`, () => {
+  it(`returns Left(${NOT_A_STRING} error) when value is Just(0)`, () => {
     expect(isString(Just(0))).toEqual(
-      Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(0) })
+      Left({ failures: [{ errorType: NOT_A_STRING }], value: Just(0) })
     )
   })
 
-  it(`returns Left(NOT_A_STRING error) when value is Just(false)`, () => {
+  it(`returns Left(${NOT_A_STRING} error) when value is Just(false)`, () => {
     expect(isString(Just(false))).toEqual(
-      Left({ failures: [{ errorType: 'NOT_A_STRING' }], value: Just(false) })
+      Left({ failures: [{ errorType: NOT_A_STRING }], value: Just(false) })
     )
   })
 
-  it(`returns Left (NOT_A_STRING error) when value is Just([1, 2, 3])`, () => {
+  it(`returns Left (${NOT_A_STRING} error) when value is Just([1, 2, 3])`, () => {
     expect(isString(Just([1, 2, 3]))).toEqual(
       Left({
-        failures: [{ errorType: 'NOT_A_STRING' }],
+        failures: [{ errorType: NOT_A_STRING }],
         value: Just([1, 2, 3])
       })
     )
   })
 
-  it(`returns Left (NOT_A_STRING error) when value is Just({ test: true })`, () => {
+  it(`returns Left (${NOT_A_STRING} error) when value is Just({ test: true })`, () => {
     expect(isString(Just({ test: true }))).toEqual(
       Left({
-        failures: [{ errorType: 'NOT_A_STRING' }],
+        failures: [{ errorType: NOT_A_STRING }],
         value: Just({ test: true })
       })
     )

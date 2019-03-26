@@ -1,4 +1,4 @@
-import { Just, Left, Nothing, Right } from 'sanctuary'
+import { Just, Left, Right } from 'sanctuary'
 
 import { NOT_A_DATE_TIME } from '../../errorTypes'
 import isDate from './'
@@ -15,7 +15,7 @@ describe('typeValidators:isDate', () => {
     )
   })
 
-  it('returns Left (NOT_A_DATE_TIME error) from the value "May 4th"', () => {
+  it(`returns Left (${NOT_A_DATE_TIME} error) from the value "May 4th"`, () => {
     const date = new Date('May 4th')
     expect(isDate(Just(date))).toMatchObject(
       Left({
@@ -25,7 +25,7 @@ describe('typeValidators:isDate', () => {
     )
   })
 
-  it('returns Left (NOT_A_DATE_TIME error) from the value NaN', () => {
+  it(`returns Left (${NOT_A_DATE_TIME} error) from the value NaN`, () => {
     const date = new Date(NaN)
     expect(isDate(Just(date))).toMatchObject(
       Left({
