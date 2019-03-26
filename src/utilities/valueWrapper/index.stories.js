@@ -5,7 +5,7 @@ import { storiesOf } from '@storybook/react'
 import valueWrapper from './'
 
 storiesOf('utilities/valueWrapper', module)
-  .add('0', () => (
+  .add('valueWrapper(0)', () => (
     <code>
       <b>valueWrapper(0)</b>
       <br />
@@ -20,7 +20,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper(0))}
     </code>
   ))
-  .add("'Some text input'", () => (
+  .add("valueWrapper('Some text input')", () => (
     <code>
       <b>valueWrapper('Some text input')</b>
       <br />
@@ -35,7 +35,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper('Some text input'))}
     </code>
   ))
-  .add('false', () => (
+  .add('valueWrapper(false)', () => (
     <code>
       <b>valueWrapper(false)</b>
       <br />
@@ -50,7 +50,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper(false))}
     </code>
   ))
-  .add('[1, 2, 3]', () => (
+  .add('valueWrapper([1, 2, 3])]', () => (
     <code>
       <b>valueWrapper([1, 2, 3])</b>
       <br />
@@ -65,7 +65,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper([1, 2, 3]))}
     </code>
   ))
-  .add('{ test: true }', () => (
+  .add('valueWrapper({ test: true })', () => (
     <code>
       <b>
         valueWrapper({`{`} test: true {`}`})
@@ -82,7 +82,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper({ test: true }))}
     </code>
   ))
-  .add("''", () => (
+  .add("valueWrapper('')", () => (
     <code>
       <b>valueWrapper('')</b>
       <br />
@@ -97,7 +97,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper(''))}
     </code>
   ))
-  .add('null', () => (
+  .add('valueWrapper(null)', () => (
     <code>
       <b>valueWrapper(null)</b>
       <br />
@@ -112,7 +112,7 @@ storiesOf('utilities/valueWrapper', module)
       {show(valueWrapper(null))}
     </code>
   ))
-  .add('undefined', () => (
+  .add('valueWrapper()', () => (
     <code>
       <b>valueWrapper()</b>
       <br />

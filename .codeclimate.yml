@@ -7,22 +7,23 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript
+        - javascript
   fixme:
     enabled: true
 ratings:
   paths:
-  - "**.js"
+    - "**.js"
 exclude_paths:
-- .eslint.js
-- .history/
-- .idea/
-- .storybook/
-- .vscode/
-- dist/
-- docs/
-- es/
-- jest.config.js
-- lib/
-- node_modules/
-- webpack.config.js
+  - .eslint.js
+  - .history/
+  - .idea/
+  - .storybook/
+  - .vscode/
+  - dist/
+  - docs/
+  - es/
+  - jest.config.js
+  - lib/
+  - node_modules/
+  - webpack.config.js
+  - "**.stories.js"
