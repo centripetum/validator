@@ -1,6 +1,5 @@
 import { Just, Left, Nothing, Right, parseDate } from 'sanctuary'
 
-import { IS_NULL } from '../../errorTypes'
 import before from './'
 
 describe('baseValidators:before', () => {

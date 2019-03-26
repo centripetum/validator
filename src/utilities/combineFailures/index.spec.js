@@ -1,5 +1,4 @@
-import { INVALID_URL, IS_NULL, NOT_A_STRING } from '../../errorTypes'
-import { Just, Left, Nothing } from 'sanctuary'
+import { Just, Left } from 'sanctuary'
 
 import combineFailures from './'
 import createFailures from '../createFailures'

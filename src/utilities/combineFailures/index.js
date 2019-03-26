@@ -2,19 +2,12 @@
 
 import {
   Left,
-  Nothing,
-  equals,
-  groupBy,
   head,
-  isJust,
-  join,
   map,
   maybeToNullable,
   pipe,
   prop,
   reduce,
-  show,
-  sortBy,
   values
 } from 'sanctuary'
 

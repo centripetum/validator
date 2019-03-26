@@ -1,15 +1,15 @@
-import { Just, Left, Nothing, Right, isNothing } from 'sanctuary'
+import { Just, Left, Nothing, Right } from 'sanctuary'
 
 import { NOT_GTE } from '../../errorTypes'
 import gte from './'
 
 describe('baseValidators:gte', () => {
-  it(`returns Left(NOT_GTE error) when testvalue is less than Value)`, () => {
+  it(`returns Left(${NOT_GTE} error) when testvalue is less than Value)`, () => {
     expect(gte(Just(20))(Just(19))).toEqual(
       Left({
         failures: [
           {
-            errorType: 'NOT_GTE',
+            errorType: NOT_GTE,
             testValue: Just(20)
           }
         ],

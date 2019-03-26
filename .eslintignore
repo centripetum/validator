@@ -7,3 +7,4 @@ es/
 lib/
 jest.config.js
 webpack.config.js
+**/*.stories.js

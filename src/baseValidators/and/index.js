@@ -1,16 +1,6 @@
 // @flow
 
-import {
-  Either,
-  Left,
-  Maybe,
-  Nothing,
-  Right,
-  equals,
-  lefts,
-  map,
-  pipe
-} from 'sanctuary'
+import { Either, Left, Maybe, Right, lefts, map } from 'sanctuary'
 
 import combineFailures from '../../utilities/combineFailures'
 import isEmpty from '../../utilities/isEmpty'

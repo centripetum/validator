@@ -4,7 +4,6 @@ import {
   Either,
   Left,
   Maybe,
-  Nothing,
   Right,
   is,
   isNothing,

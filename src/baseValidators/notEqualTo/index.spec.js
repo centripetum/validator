@@ -8,10 +8,10 @@ describe('baseValidators:notEqualTo', () => {
     expect(notEqualTo(Just(20))(Just(19))).toEqual(Right(Just(19)))
   })
 
-  it(`returns Left(NOT_UNEQUAL_TO error) when the value equals the test value`, () => {
+  it(`returns Left(${NOT_UNEQUAL_TO} error) when the value equals the test value`, () => {
     expect(notEqualTo(Just(20))(Just(20))).toEqual(
       Left({
-        failures: [{ errorType: undefined, testValue: Just(20) }],
+        failures: [{ errorType: NOT_UNEQUAL_TO, testValue: Just(20) }],
         value: Just(20)
       })
     )

@@ -4,12 +4,12 @@ import { TOO_FEW_WORDS } from '../../../errorTypes'
 import gteWords from './'
 
 describe('baseValidators:gteWords', () => {
-  it(`returns Left(TOO_FEW_WORDS error) when test words count in a string is less than actual words count in string)`, () => {
+  it(`returns Left(${TOO_FEW_WORDS} error) when test words count in a string is less than actual words count in string)`, () => {
     expect(gteWords(Just(5))(Just('Bob is dead!'))).toEqual(
       Left({
         failures: [
           {
-            errorType: 'TOO_FEW_WORDS',
+            errorType: TOO_FEW_WORDS,
             testValue: Just(5)
           }
         ],
@@ -33,5 +33,4 @@ describe('baseValidators:gteWords', () => {
       Right(Just('Tommy is no more, too!'))
     )
   })
-  
 })
